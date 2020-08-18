@@ -94,12 +94,14 @@ public class MainActivity extends AppCompatActivity implements NearbyDiscoveryLi
 
     @Override
     public void onFound(NodeInfo nodeInfo) {
+        Log.d(TAG, "onFound: " + nodeInfo.ip());
         adapter.nodes().add(nodeInfo);
         runOnUiThread(() -> adapter.notifyDataSetChanged());
     }
 
     @Override
     public void onLost(NodeInfo nodeInfo) {
+        Log.d(TAG, "onLost: " + nodeInfo.ip());
         adapter.nodes().remove(nodeInfo);
         runOnUiThread(() -> adapter.notifyDataSetChanged());
     }
