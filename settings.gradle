@@ -1,0 +1,3 @@
+rootProject.name = "BroadcastDemo"
+include ':app'
+include ':IotLogger'
