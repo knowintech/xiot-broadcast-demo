@@ -1,5 +1,5 @@
 rootProject.ext.vertxVersion = '3.9.1'
-rootProject.ext.xiotCoreVersion = '0.90.20-SNAPSHOT'
+rootProject.ext.xiotCoreVersion = '0.90.21-SNAPSHOT'
 rootProject.ext.jzlibVersion = '1.1.2'
 rootProject.ext.insightVersion = '0.6.4-SNAPSHOT'
 rootProject.ext.zigbeeVersion = '0.21.9-SNAPSHOT'
