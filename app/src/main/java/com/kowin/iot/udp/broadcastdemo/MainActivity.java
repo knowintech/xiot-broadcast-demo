@@ -61,18 +61,20 @@ public class MainActivity extends AppCompatActivity implements NearbyDiscoveryLi
 
         runOnUiThread(() -> setTitle("ip: " + ip));
 
-        nearby.start(NetworkUtils.getBroadcastAddress(ip), 5354)
-                .onComplete(ar -> {
-                    if (ar.succeeded()) {
-                        Log.d(TAG, "start succeeded!");
-                        nearby.startDiscovery(env, nid, this);
-                        nearby.register(node);
-                        started = true;
-                    } else {
-                        Log.d(TAG, "start failed: " + ar.cause().toString());
-                        started = false;
-                    }
-                });
+        if (! ip.startsWith("127")) {
+            nearby.start(NetworkUtils.getBroadcastAddress(ip), 5354)
+                    .onComplete(ar -> {
+                        if (ar.succeeded()) {
+                            Log.d(TAG, "start succeeded!");
+                            nearby.startDiscovery(env, nid, this);
+                            nearby.register(node);
+                            started = true;
+                        } else {
+                            Log.d(TAG, "start failed: " + ar.cause().toString());
+                            started = false;
+                        }
+                    });
+        }
     }
 
     public void onButtonStop(View view) {
